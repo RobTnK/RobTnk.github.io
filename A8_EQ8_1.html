@@ -1,0 +1,41 @@
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawSeriesChart);
+
+    function drawSeriesChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['ID', 'Porcentaje 2008', 'Porcentaje 2018', 'Region'],
+        ['CHIA',    77.0,              76.4,      'SUR',],
+        ['GUE',    68.4,               66.5,      'PACIFICO',],
+        ['PUE',    64.6,               58.9,      'CENTRO',],
+        ['OAX',    61.8,               66.4,      'SUR',],
+        ['TLAX',   59.6,               48.4,         'CENTRO',],
+        ['MICH',   55.5,               46.0,       'PACIFICO',],
+        ['HID',    55.2,               43.8,      'CENTRO',],
+        ['TAB',    53.8,               53.6,      'SUR',],
+        ['VER',    51.2,               61.8,      'GOLFO',],
+        ['SLP',    50.9,               43.4,      'NORTE',]
+      ]);
+
+      var options = {
+        title: 'LOS 10 ESTADOS DE MEXICO CON MAYOR PORCENTAJE DE POBREZA DEL 2008 vs 2018.' +
+          ' X=Estados, Y=Porcentaje, Bubble size=Population, Bubble color=Region',
+        hAxis: {title: 'Estados con Mayor Pobreza'},
+        vAxis: {title: 'Porcentaje'},
+        bubble: {textStyle: {fontSize: 11}}
+      };
+
+      var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
+      chart.draw(data, options);
+    }
+    </script>
+  </head>
+  <body>
+    <div id="series_chart_div" style="width: 1100px; height: 700px;"></div>
+  </body>
+</html>
